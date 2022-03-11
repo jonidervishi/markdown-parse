@@ -1,47 +1,19 @@
-import static org.junit.Assert.*;
-import org.junit.*;
+import static org.junit.Assert.*; //imports the Assert type tests
+import org.junit.*; //imports the all of the junit methods and classes and so on
+
+import static org.junit.Assert.*; //imports the Assert type tests
+import org.junit.*; //imports the all of the junit methods and classes and so on
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
-
-public class MarkdownParseTest {
-    @Test
-    public void testFile1() throws IOException {
-        String contents= Files.readString(Path.of("./test-file.md"));
-        List<String> expect = List.of("https://something.com", "some-page.html");
-        assertEquals(MarkdownParse.getLinks(contents), expect);
-    }
-    
-    @Test
-    public void testFile2() throws IOException {
-        String contents= Files.readString(Path.of("./test-file2.md"));
-        List<String> expect = List.of("https://something.com", "some-page.html");
-        assertEquals(MarkdownParse.getLinks(contents), expect);
-    }
-
-    @Test
-    public void testMissingCloseParen() {
-        String contents= "[link title](a.com";
-        List<String> expect = List.of();
-        assertEquals(MarkdownParse.getLinks(contents), expect);
-    }
-
-    @Test
-    public void testSpaceAroundLink() {
-        String contents= "[link title](   a.com   )";
-        List<String> expect = List.of("a.com");
-        assertEquals(expect, MarkdownParse.getLinks(contents));
-    }
-
-    @Test
-    public void testNestedParens() throws IOException {
-        String contents = Files.readString(Path.of("test-parens-inside-link.md"));
-        List<String> expect = List.of("something.com()", "something.com((()))", "something.com", "boring.com");
-        assertEquals(expect, MarkdownParse.getLinks(contents));
+import java.util.*;
+public class MarkdownParseLabTest {
+    @Test//indicates where a test is for the tester
+    public void addition() {//test method header
+        assertEquals(2, 1 + 1);//an actual test that chects if the two parameters are equals
     }
     @Test
     public void testTestFile() throws IOException, NoSuchFileException{
@@ -82,5 +54,5 @@ public class MarkdownParseTest {
 
         assertEquals(returnArray, links);
     }
-
 }
+
