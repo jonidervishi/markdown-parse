@@ -50,6 +50,7 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(contents);
 
         List<String> returnArray = new ArrayList<>();
+        returnArray.add("url.com");
         returnArray.add("`google.com");
         returnArray.add("google.com");
         returnArray.add("ucsd.edu");
@@ -78,8 +79,9 @@ public class MarkdownParseTest {
         ArrayList<String> links = MarkdownParse.getLinks(contents);
 
         List<String> returnArray = new ArrayList<>();
+        returnArray.add("https://www.twitter.com");
         returnArray.add("https://ucsd-cse15l-w22.github.io/");
-
+        returnArray.add("https://cse.ucsd.edu/");
         assertEquals(returnArray, links);
     }
 
